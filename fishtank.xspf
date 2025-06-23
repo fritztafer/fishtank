@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+open this file with https://www.videolan.org/vlc
+
+-->
+<playlist xmlns="http://xspf.org/ns/0/" xmlns:vlc="http://www.videolan.org/vlc/playlist/ns/0/" version="1">
+	<title>Playlist</title>
+	<trackList>
+		<track>
+			<location>https://streams-d.fishtank.live/hls/live+camera-1-4/index.m3u8</location>
+			<title>Bedroom 1</title>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>0</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>https://streams-d.fishtank.live/hls/live+camera-2-4/index.m3u8</location>
+			<title>Bedroom 2</title>
+			<duration>45999</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>1</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>https://streams-d.fishtank.live/hls/live+camera-3-4/index.m3u8</location>
+			<title>Bedroom 3</title>
+			<duration>46000</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>2</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>https://streams-d.fishtank.live/hls/live+camera-4-4/index.m3u8</location>
+			<title>Bedroom 4</title>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>3</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>https://streams-d.fishtank.live/hls/live+camera-5-4/index.m3u8</location>
+			<title>Hallway Upstairs</title>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>4</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>https://streams-d.fishtank.live/hls/live+camera-6-4/index.m3u8</location>
+			<title>Hallway Downstairs</title>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>5</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>https://streams-d.fishtank.live/hls/live+camera-7-4/index.m3u8</location>
+			<title>Living Room</title>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>6</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>https://streams-d.fishtank.live/hls/live+camera-8-4/index.m3u8</location>
+			<title>Living Room PTZ</title>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>7</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>https://streams-d.fishtank.live/hls/live+camera-9-4/index.m3u8</location>
+			<title>Kitchen</title>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>8</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>https://streams-d.fishtank.live/hls/live+camera-10-4/index.m3u8</location>
+			<title>Laundry Room</title>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>9</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>https://streams-d.fishtank.live/hls/live+camera-11-4/index.m3u8</location>
+			<title>Garage</title>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>10</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>https://streams-d.fishtank.live/hls/live+camera-12-4/index.m3u8</location>
+			<title>Confessional</title>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>11</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>https://streams-d.fishtank.live/hls/live+camera-13-4/index.m3u8</location>
+			<title>Director</title>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>12</vlc:id>
+			</extension>
+		</track>
+	</trackList>
+	<extension application="http://www.videolan.org/vlc/playlist/0">
+		<vlc:item tid="0"/>
+		<vlc:item tid="1"/>
+		<vlc:item tid="2"/>
+		<vlc:item tid="3"/>
+		<vlc:item tid="4"/>
+		<vlc:item tid="5"/>
+		<vlc:item tid="6"/>
+		<vlc:item tid="7"/>
+		<vlc:item tid="8"/>
+		<vlc:item tid="9"/>
+		<vlc:item tid="10"/>
+		<vlc:item tid="11"/>
+		<vlc:item tid="12"/>
+	</extension>
+</playlist>

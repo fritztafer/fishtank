@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<!--
+
+1) run with python:
+	httpserver.py
+
+2) configure https://requestly.com rule:
+	if HOST == streams-d.fishtank.live
+		REQUEST HEADER
+			OVERRIDE: origin = https://www.fishtank.live
+			OVERRIDE: referer = https://www.fishtank.live
+
+3) go to link with browser:
+	http://localhost
+
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>fishtank🔴LIVE</title>
+<link rel="icon" href="data:image/png;base64,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" />
+<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+<style>
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #000;
+    font-family: sans-serif;
+    overflow: hidden;
+}
+main {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+}
+.cameras {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #111;
+}
+.camera {
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    background-color: #222;
+    background-size: cover;
+    background-position: center;
+    border: none;
+    font-size: 14px;
+    color: #bebebe;
+    text-shadow: 0 0 3px #000;
+}
+.camera:hover {
+    background-color: #633;
+    color: #fff;
+    text-shadow: 0 0 15px #000;
+}
+.camera:active {
+    background-size: 110%;
+}
+.camera.active {
+    color: #ff0;
+}
+.half {
+    flex: 0.5;
+}
+.stream {
+    height: 100%;
+    width: auto;
+    max-width: calc(100% - 150px);
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+}
+</style>
+</head>
+<body>
+<main>
+    <div class="cameras"></div>
+    <video class="stream" controls autoplay muted></video>
+</main>
+<script>
+const cams = {
+    "Bedroom 1": {
+        "stream": "https://streams-d.fishtank.live/hls/live+camera-1-4/index.m3u8",
+        "thumb": "https://ft-thumbnails.b-cdn.net/live%2Bcamera-1-4.jpg"
+    }, "Bedroom 2": {
+        "stream": "https://streams-d.fishtank.live/hls/live+camera-2-4/index.m3u8",
+        "thumb": "https://ft-thumbnails.b-cdn.net/live%2Bcamera-2-4.jpg"
+    }, "Bedroom 3": {
+        "stream": "https://streams-d.fishtank.live/hls/live+camera-3-4/index.m3u8",
+        "thumb": "https://ft-thumbnails.b-cdn.net/live%2Bcamera-3-4.jpg"
+    }, "Bedroom 4": {
+        "stream": "https://streams-d.fishtank.live/hls/live+camera-4-4/index.m3u8",
+        "thumb": "https://ft-thumbnails.b-cdn.net/live%2Bcamera-4-4.jpg"
+    }, "Hallway Upstairs": {
+        "stream": "https://streams-d.fishtank.live/hls/live+camera-5-4/index.m3u8",
+        "thumb": "https://ft-thumbnails.b-cdn.net/live%2Bcamera-5-4.jpg"
+    }, "Hallway Downstairs": {
+        "stream": "https://streams-d.fishtank.live/hls/live+camera-6-4/index.m3u8",
+        "thumb": "https://ft-thumbnails.b-cdn.net/live%2Bcamera-6-4.jpg"
+    }, "Living Room": {
+        "stream": "https://streams-d.fishtank.live/hls/live+camera-7-4/index.m3u8",
+        "thumb": "https://ft-thumbnails.b-cdn.net/live%2Bcamera-7-4.jpg"
+    }, "Living Room PTZ": {
+        "stream": "https://streams-d.fishtank.live/hls/live+camera-8-4/index.m3u8",
+        "thumb": "https://ft-thumbnails.b-cdn.net/live%2Bcamera-8-4.jpg"
+    }, "Kitchen": {
+        "stream": "https://streams-d.fishtank.live/hls/live+camera-9-4/index.m3u8",
+        "thumb": "https://ft-thumbnails.b-cdn.net/live%2Bcamera-9-4.jpg"
+    }, "Laundry Room": {
+        "stream": "https://streams-d.fishtank.live/hls/live+camera-10-4/index.m3u8",
+        "thumb": "https://ft-thumbnails.b-cdn.net/live%2Bcamera-10-4.jpg"
+    }, "Garage": {
+        "stream": "https://streams-d.fishtank.live/hls/live+camera-11-4/index.m3u8",
+        "thumb": "https://ft-thumbnails.b-cdn.net/live%2Bcamera-11-4.jpg"
+    }, "Confessional": {
+        "stream": "https://streams-d.fishtank.live/hls/live+camera-12-4/index.m3u8",
+        "thumb": "https://ft-thumbnails.b-cdn.net/live%2Bcamera-12-4.jpg"
+    }, "Director": {
+        "stream": "https://streams-d.fishtank.live/hls/live+camera-13-4/index.m3u8",
+        "thumb": "https://ft-thumbnails.b-cdn.net/live%2Bcamera-13-4.jpg"
+    }
+}
+camerasWidth();
+window.addEventListener('resize', camerasWidth);
+for (let cam in cams) {
+    const camera = Object.assign(document.createElement("button"),{classList: "camera", textContent: cam, value: cam, onclick: () => stream(cam)});
+    if (cam == "Hallway Upstairs" || cam == "Hallway Downstairs") camera.classList.add("half");
+    const updateThumb = () => {
+        const thumb = cams[cam].thumb;
+        const img = new Image();
+        img.src = `${thumb}?refresh=${Date.now()}`;
+        img.onload = () => {camera.style.backgroundImage = `url("${img.src}")`;}
+    }
+    updateThumb();
+    setInterval(updateThumb, 60000);
+    document.querySelector(".cameras").appendChild(camera);
+}
+function stream(cam) {
+    const stream = cams[cam].stream;
+    const player = document.querySelector(".stream");
+    active(cam);
+    if (window.hls) {window.hls.destroy();}
+    if (Hls.isSupported()) {
+        window.hls = new Hls();
+        window.hls.loadSource(stream);
+        window.hls.attachMedia(player);
+        window.hls.on(Hls.Events.MANIFEST_PARSED, () => player.play());
+    } else {alert("unsupported");}
+}
+function active(cam) {
+    document.querySelectorAll(".camera").forEach(btn => btn.classList.remove("active"));
+    const button = [...document.querySelectorAll(".camera")].find(btn => btn.value === cam);
+    if (button) button.classList.add("active");
+}
+function camerasWidth() {
+    const main = document.querySelector('main');
+    const cameras = document.querySelector('.cameras');
+    const streamWidth = main.clientHeight * (16 / 9);
+    let camerasWidth = main.clientWidth - streamWidth;
+    if (camerasWidth < 150) camerasWidth = 150;
+    else if (camerasWidth > 320) camerasWidth = 320;
+    cameras.style.width = `${camerasWidth}px`;
+}
+</script>
+</body>
+</html>
