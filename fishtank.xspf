@@ -36,10 +36,17 @@ open this file with https://www.videolan.org/vlc
 			</extension>
 		</track>
 		<track>
+			<location>https://streams-d.fishtank.live/hls/live+camera-5-4/index.m3u8</location>
+			<title>Cam 1</title>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>4</vlc:id>
+			</extension>
+		</track>
+		<track>
 			<location>https://streams-d.fishtank.live/hls/live+camera-13-4/index.m3u8</location>
 			<title>Director</title>
 			<extension application="http://www.videolan.org/vlc/playlist/0">
-				<vlc:id>4</vlc:id>
+				<vlc:id>5</vlc:id>
 			</extension>
 		</track>
 	</trackList>
@@ -49,5 +56,6 @@ open this file with https://www.videolan.org/vlc
 		<vlc:item tid="2"/>
 		<vlc:item tid="3"/>
 		<vlc:item tid="4"/>
+		<vlc:item tid="5"/>
 	</extension>
 </playlist>
