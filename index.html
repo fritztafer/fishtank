@@ -124,13 +124,13 @@ function stream(cam) {
     const stream = cams[cam].stream;
     const player = document.querySelector(".stream");
     active(cam);
-    if (window.hls) {window.hls.destroy();}
+    if (window.hls) window.hls.destroy();
     if (Hls.isSupported()) {
         window.hls = new Hls();
         window.hls.loadSource(stream);
         window.hls.attachMedia(player);
         window.hls.on(Hls.Events.MANIFEST_PARSED, () => player.play());
-    } else {alert("unsupported");}
+    } else alert("unsupported");
 }
 function active(cam) {
     document.querySelectorAll(".camera").forEach(btn => btn.classList.remove("active"));
