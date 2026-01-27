@@ -90,11 +90,12 @@ const cams = {
         "thumb": "https://ft-thumbnails.b-cdn.net/live+live-stream-event.jpg"
     }
 }
+const half = [];
 camerasWidth();
 window.addEventListener("resize", camerasWidth);
 for (let cam in cams) {
     const camera = Object.assign(document.createElement("button"),{classList: "camera", textContent: cam, value: cam, onclick: () => stream(cam)});
-    // if (cam == "Hallway Upstairs" || cam == "Hallway Downstairs") camera.classList.add("half");
+    if (half.includs(cam)) camera.classList.add("half");
     const updateThumb = () => {
         const thumb = cams[cam].thumb;
         const img = new Image();
