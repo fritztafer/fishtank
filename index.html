@@ -91,7 +91,7 @@ const cams = {
     }
 }
 camerasWidth();
-window.addEventListener('resize', camerasWidth);
+window.addEventListener("resize", camerasWidth);
 for (let cam in cams) {
     const camera = Object.assign(document.createElement("button"),{classList: "camera", textContent: cam, value: cam, onclick: () => stream(cam)});
     // if (cam == "Hallway Upstairs" || cam == "Hallway Downstairs") camera.classList.add("half");
@@ -109,13 +109,13 @@ function stream(cam) {
     const stream = cams[cam].stream;
     const player = document.querySelector(".stream");
     active(cam);
-    if (window.hls) {window.hls.destroy();}
+    if (window.hls) window.hls.destroy();
     if (Hls.isSupported()) {
         window.hls = new Hls();
         window.hls.loadSource(stream);
         window.hls.attachMedia(player);
         window.hls.on(Hls.Events.MANIFEST_PARSED, () => player.play());
-    } else {alert("unsupported");}
+    } else alert("unsupported");
 }
 function active(cam) {
     document.querySelectorAll(".camera").forEach(btn => btn.classList.remove("active"));
@@ -123,8 +123,8 @@ function active(cam) {
     if (button) button.classList.add("active");
 }
 function camerasWidth() {
-    const main = document.querySelector('main');
-    const cameras = document.querySelector('.cameras');
+    const main = document.querySelector("main");
+    const cameras = document.querySelector(".cameras");
     const streamWidth = main.clientHeight * (16 / 9);
     let camerasWidth = main.clientWidth - streamWidth;
     if (camerasWidth < 150) camerasWidth = 150;
