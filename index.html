@@ -85,31 +85,16 @@ main {
 </main>
 <script>
 const cams = {
-    "Bunker 1": {
-        "stream": "https://streams-d.fishtank.live/hls/live+camera-1-4/index.m3u8",
-        "thumb": "https://ft-thumbnails.b-cdn.net/live%2Bcamera-1-4.jpg"
-    }, "Bunker 2": {
-        "stream": "https://streams-d.fishtank.live/hls/live+camera-2-4/index.m3u8",
-        "thumb": "https://ft-thumbnails.b-cdn.net/live%2Bcamera-2-4.jpg"
-    }, "Bunker 3": {
-        "stream": "https://streams-d.fishtank.live/hls/live+camera-3-4/index.m3u8",
-        "thumb": "https://ft-thumbnails.b-cdn.net/live%2Bcamera-3-4.jpg"
-    }, "Crawlspace": {
-        "stream": "https://streams-d.fishtank.live/hls/live+camera-4-4/index.m3u8",
-        "thumb": "https://ft-thumbnails.b-cdn.net/live%2Bcamera-4-4.jpg"
-    }, "Cam 1": {
-        "stream": "https://streams-d.fishtank.live/hls/live+camera-5-4/index.m3u8",
-        "thumb": "https://ft-thumbnails.b-cdn.net/live%2Bcamera-5-4.jpg"
-    }, "Director": {
-        "stream": "https://streams-d.fishtank.live/hls/live+camera-13-4/index.m3u8",
-        "thumb": "https://ft-thumbnails.b-cdn.net/live%2Bcamera-13-4.jpg"
+    "Live": {
+        "stream": "https://streams-f.fishtank.live/hls/live+live-stream-event/2_1/index.m3u8",
+        "thumb": "https://ft-thumbnails.b-cdn.net/live+live-stream-event.jpg"
     }
 }
 camerasWidth();
 window.addEventListener('resize', camerasWidth);
 for (let cam in cams) {
     const camera = Object.assign(document.createElement("button"),{classList: "camera", textContent: cam, value: cam, onclick: () => stream(cam)});
-    if (cam == "Hallway Upstairs" || cam == "Hallway Downstairs") camera.classList.add("half");
+    // if (cam == "Hallway Upstairs" || cam == "Hallway Downstairs") camera.classList.add("half");
     const updateThumb = () => {
         const thumb = cams[cam].thumb;
         const img = new Image();
