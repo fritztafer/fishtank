@@ -95,7 +95,7 @@ camerasWidth();
 window.addEventListener("resize", camerasWidth);
 for (let cam in cams) {
     const camera = Object.assign(document.createElement("button"),{classList: "camera", textContent: cam, value: cam, onclick: () => stream(cam)});
-    if (half.includs(cam)) camera.classList.add("half");
+    if (half.includes(cam)) camera.classList.add("half");
     const updateThumb = () => {
         const thumb = cams[cam].thumb;
         const img = new Image();
