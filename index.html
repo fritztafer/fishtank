@@ -137,12 +137,12 @@ const cams = {
         "stream": "https://epyc.goran.jetzt/jckz-5/index.m3u8",
         "thumb": "https://streams-h.fishtank.live/live%2Bjckz-5.jpeg"
     }
-}
+}, half = [];
 camerasWidth();
 window.addEventListener("resize", camerasWidth);
 for (let cam in cams) {
     const camera = Object.assign(document.createElement("button"),{classList: "camera", textContent: cam, value: cam, onclick: () => stream(cam)});
-    if ([""].includes(cam)) camera.classList.add("half");
+    if (half.includes(cam)) camera.classList.add("half");
     const updateThumb = () => {
         const thumb = cams[cam].thumb;
         const img = new Image();
