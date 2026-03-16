@@ -93,7 +93,7 @@ open this file with https://www.videolan.org/vlc
 		</track>
 		<track>
 			<location>https://epyc.goran.jetzt/hwup-5/index.m3u8</location>
-			<title>Hallyway Up</title>
+			<title>Hallway Up</title>
 			<extension application="http://www.videolan.org/vlc/playlist/0">
 				<vlc:id>12</vlc:id>
 			</extension>
@@ -140,6 +140,13 @@ open this file with https://www.videolan.org/vlc
 				<vlc:id>18</vlc:id>
 			</extension>
 		</track>
+		<track>
+			<location>https://epyc.goran.jetzt/cameraman-5/index.m3u8</location>
+			<title>Camera Man</title>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>19</vlc:id>
+			</extension>
+		</track>
 	</trackList>
 	<extension application="http://www.videolan.org/vlc/playlist/0">
 		<vlc:item tid="0"/>
@@ -161,5 +168,6 @@ open this file with https://www.videolan.org/vlc
 		<vlc:item tid="16"/>
 		<vlc:item tid="17"/>
 		<vlc:item tid="18"/>
+		<vlc:item tid="19"/>
 	</extension>
 </playlist>
