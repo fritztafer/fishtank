@@ -4,12 +4,6 @@
 1) run with python:
 	httpserver.py
 
-2) configure https://requestly.com rule:
-	if HOST == streams-d.fishtank.live
-		REQUEST HEADER
-			OVERRIDE: origin = https://www.fishtank.live
-			OVERRIDE: referer = https://www.fishtank.live
-
 3) go to link with browser:
 	http://localhost
 
@@ -85,31 +79,70 @@ main {
 </main>
 <script>
 const cams = {
-    "Bunker 1": {
-        "stream": "https://streams-d.fishtank.live/hls/live+camera-1-4/index.m3u8",
-        "thumb": "https://ft-thumbnails.b-cdn.net/live%2Bcamera-1-4.jpg"
-    }, "Bunker 2": {
-        "stream": "https://streams-d.fishtank.live/hls/live+camera-2-4/index.m3u8",
-        "thumb": "https://ft-thumbnails.b-cdn.net/live%2Bcamera-2-4.jpg"
-    }, "Bunker 3": {
-        "stream": "https://streams-d.fishtank.live/hls/live+camera-3-4/index.m3u8",
-        "thumb": "https://ft-thumbnails.b-cdn.net/live%2Bcamera-3-4.jpg"
-    }, "Crawlspace": {
-        "stream": "https://streams-d.fishtank.live/hls/live+camera-4-4/index.m3u8",
-        "thumb": "https://ft-thumbnails.b-cdn.net/live%2Bcamera-4-4.jpg"
-    }, "Cam 1": {
-        "stream": "https://streams-d.fishtank.live/hls/live+camera-5-4/index.m3u8",
-        "thumb": "https://ft-thumbnails.b-cdn.net/live%2Bcamera-5-4.jpg"
-    }, "Director": {
-        "stream": "https://streams-d.fishtank.live/hls/live+camera-13-4/index.m3u8",
-        "thumb": "https://ft-thumbnails.b-cdn.net/live%2Bcamera-13-4.jpg"
+    "Director": {
+        "stream": "https://epyc.goran.jetzt/dirc-5/index.m3u8",
+        "thumb": "https://streams-h.fishtank.live/live%2Bdirc-5.jpeg"
+    }, "Dorm": {
+        "stream": "https://epyc.goran.jetzt/dmrm-5/index.m3u8",
+        "thumb": "https://streams-h.fishtank.live/live%2Bdmrm-5.jpeg"
+    }, "Balcony": {
+        "stream": "https://epyc.goran.jetzt/bkny-5/index.m3u8",
+        "thumb": "https://streams-h.fishtank.live/live%2Bbkny-5.jpeg"
+    }, "Foyer": {
+        "stream": "https://epyc.goran.jetzt/foyr-5/index.m3u8",
+        "thumb": "https://streams-h.fishtank.live/live%2Bfoyr-5.jpeg"
+    }, "Closet": {
+        "stream": "https://epyc.goran.jetzt/dmcl-5/index.m3u8",
+        "thumb": "https://streams-h.fishtank.live/live%2Bdmcl-5.jpeg"
+    }, "Glassroom": {
+        "stream": "https://epyc.goran.jetzt/gsrm-5/index.m3u8",
+        "thumb": "https://streams-h.fishtank.live/live%2Bgsrm-5.jpeg"
+    }, "Bar": {
+        "stream": "https://epyc.goran.jetzt/brrr-5/index.m3u8",
+        "thumb": "https://streams-h.fishtank.live/live%2Bbrrr-5.jpeg"
+    }, "Corridor": {
+        "stream": "https://epyc.goran.jetzt/codr-5/index.m3u8",
+        "thumb": "https://streams-h.fishtank.live/live%2Bcodr-5.jpeg"
+    }, "Kitchen": {
+        "stream": "https://epyc.goran.jetzt/ktch-5/index.m3u8",
+        "thumb": "https://streams-h.fishtank.live/live%2Bktch-5.jpeg"
+    }, "Dining Room": {
+        "stream": "https://epyc.goran.jetzt/dnrm-5/index.m3u8",
+        "thumb": "https://streams-h.fishtank.live/live%2Bdnrm-5.jpeg"
+    }, "Market": {
+        "stream": "https://epyc.goran.jetzt/mrke-5/index.m3u8",
+        "thumb": "https://streams-h.fishtank.live/live%2Bmrke-5.jpeg"
+    }, "Hallway Down": {
+        "stream": "https://epyc.goran.jetzt/hwdn-5/index.m3u8",
+        "thumb": "https://streams-h.fishtank.live/live%2Bhwdn-5.jpeg"
+    }, "Hallway Up": {
+        "stream": "https://epyc.goran.jetzt/hwup-5/index.m3u8",
+        "thumb": "https://streams-h.fishtank.live/live%2Bhwup-5.jpeg"
+    }, "Confessional": {
+        "stream": "https://epyc.goran.jetzt/cfsl-5/index.m3u8",
+        "thumb": "https://streams-h.fishtank.live/live%2Bcfsl-5.jpeg"
+    }, "Bar PTZ": {
+        "stream": "https://epyc.goran.jetzt/brpz-5/index.m3u8",
+        "thumb": "https://streams-h.fishtank.live/live%2Bbrpz-5.jpeg"
+    }, "Market Alternative": {
+        "stream": "https://epyc.goran.jetzt/mrke2-5/index.m3u8",
+        "thumb": "https://streams-h.fishtank.live/live%2Bmrke2-5.jpeg"
+    }, "Bar Alternative": {
+        "stream": "https://epyc.goran.jetzt/brrr2-5/index.m3u8",
+        "thumb": "https://streams-h.fishtank.live/live%2Bbrrr2-5.jpeg"
+    }, "Dorm Alternative": {
+        "stream": "https://epyc.goran.jetzt/dmrm2-5/index.m3u8",
+        "thumb": "https://streams-h.fishtank.live/live%2Bdmrm2-5.jpeg"
+    }, "Jacuzzi": {
+        "stream": "https://epyc.goran.jetzt/jckz-5/index.m3u8",
+        "thumb": "https://streams-h.fishtank.live/live%2Bjckz-5.jpeg"
     }
 }
 camerasWidth();
 window.addEventListener("resize", camerasWidth);
 for (let cam in cams) {
     const camera = Object.assign(document.createElement("button"),{classList: "camera", textContent: cam, value: cam, onclick: () => stream(cam)});
-    if (cam == "Hallway Upstairs" || cam == "Hallway Downstairs") camera.classList.add("half");
+    if ([""].includes(cam)) camera.classList.add("half");
     const updateThumb = () => {
         const thumb = cams[cam].thumb;
         const img = new Image();
