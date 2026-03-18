@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
+uses unofficial streams
+
 open this file with https://www.videolan.org/vlc
 
 -->
@@ -142,9 +144,16 @@ open this file with https://www.videolan.org/vlc
 		</track>
 		<track>
 			<location>https://epyc.goran.jetzt/cameraman-5/index.m3u8</location>
-			<title>Camera Man</title>
+			<title>Cameraman</title>
 			<extension application="http://www.videolan.org/vlc/playlist/0">
 				<vlc:id>19</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>https://epyc.goran.jetzt/br4j-5/index.m3u8</location>
+			<title>Jungle Room</title>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>20</vlc:id>
 			</extension>
 		</track>
 	</trackList>
@@ -169,5 +178,6 @@ open this file with https://www.videolan.org/vlc
 		<vlc:item tid="17"/>
 		<vlc:item tid="18"/>
 		<vlc:item tid="19"/>
+		<vlc:item tid="20"/>
 	</extension>
 </playlist>
