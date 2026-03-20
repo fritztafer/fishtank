@@ -80,21 +80,18 @@ main {
     <video class="stream" poster="https://www.fishtank.live/images/logo.png" controls autoplay muted playsinline></video>
 </main>
 <script>
-const main = document.querySelector("main"),
-cameras = document.querySelector(".cameras"),
-player = document.querySelector(".stream"),
-letter = "h",
-params = "",
-cams = {
+const main = document.querySelector("main");
+const cameras = document.querySelector(".cameras");
+const player = document.querySelector(".stream");
+const letter = "h";
+const params = "";
+const cams = {
     "Director": {
         "stream": "https://epyc.goran.jetzt:444/hls/dirc-5/index.m3u8",
         "thumb": `https://streams-${letter}.fishtank.live/live+dirc-5.jpeg`
     }, "Dorm": {
         "stream": "https://epyc.goran.jetzt:444/hls/dmrm-5/index.m3u8",
         "thumb": `https://streams-${letter}.fishtank.live/live+dmrm-5.jpeg`
-    }, "Balcony": {
-        "stream": "https://epyc.goran.jetzt:444/hls/bkny-5/index.m3u8",
-        "thumb": `https://streams-${letter}.fishtank.live/live+bkny-5.jpeg`
     }, "Foyer": {
         "stream": "https://epyc.goran.jetzt:444/hls/foyr-5/index.m3u8",
         "thumb": `https://streams-${letter}.fishtank.live/live+foyr-5.jpeg`
@@ -122,7 +119,10 @@ cams = {
     }, "Hallway Down": {
         "stream": "https://epyc.goran.jetzt:444/hls/hwdn-5/index.m3u8",
         "thumb": `https://streams-${letter}.fishtank.live/live+hwdn-5.jpeg`
-    }, "Hallway Up": {
+    }, "East Wing": {
+        "stream": "https://epyc.goran.jetzt:444/hls/bkny-5/index.m3u8",
+        "thumb": `https://streams-${letter}.fishtank.live/live+bkny-5.jpeg`
+    }, "West Wing": {
         "stream": "https://epyc.goran.jetzt:444/hls/hwup-5/index.m3u8",
         "thumb": `https://streams-${letter}.fishtank.live/live+hwup-5.jpeg`
     }, "Confessional": {
@@ -150,20 +150,31 @@ cams = {
         "stream": "https://epyc.goran.jetzt:444/hls/jckz-5/index.m3u8",
         "thumb": `https://streams-${letter}.fishtank.live/live+jckz-5.jpeg`
     }
-}, half = [];
+}, half = ["East Wing", "West Wing"];
 camerasWidth();
 window.addEventListener("resize", camerasWidth);
 for (let cam in cams) {
+    let current;
     const camera = Object.assign(document.createElement("button"), {classList: "camera", textContent: cam, value: cam, onclick: () => stream(cam)});
-    if (half.includes(cam)) camera.classList.add("half");
-    const updateThumb = () => {
+    const updateThumb = async () => {
         const thumb = cams[cam].thumb;
-        const img = new Image();
-        img.src = `${thumb}?refresh=${Date.now()}`;
-        img.onload = () => {camera.style.backgroundImage = `url("${img.src}")`;}
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 800);
+        try {
+            const response = await fetch(`${thumb}?refresh=${Date.now()}`);
+            const blob = await response.blob();
+            const url = URL.createObjectURL(blob);
+            if (current) URL.revokeObjectURL(current);
+            current = url;
+            camera.style.backgroundImage = `url("${url}")`;
+        } catch (e) {} finally {clearTimeout(timeout);}
     }
-    updateThumb();
-    setInterval(updateThumb, 60000);
+    const loop = async () => {
+        await updateThumb();
+        setTimeout(loop, 60000);
+    }
+    loop();
+    if (half.includes(cam)) camera.classList.add("half");
     document.querySelector(".cameras").appendChild(camera);
 }
 function stream(cam) {
