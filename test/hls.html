@@ -7,17 +7,8 @@
 1) run with python:
 	httpserver.py
 
-2) configure https://github.com/ichaoX/ext-webRequest rule:
-    Match Request:
-        let hostPattern = /^streams-[a-z]\.fishtank\.live$/;
-        let urlObj = new URL(details.url);
-        return hostPattern.test(urlObj.hostname);
-    BeforeSendHeaders:
-        let headersInit = {
-            ...
-            "referer": "https://www.fishtank.live",
-            "origin": "https://www.fishtank.live"
-        };
+2) import webRequest_rule.json into extension:
+    https://github.com/ichaoX/ext-webRequest
 
 3) aquire subdomain letter and token from a fishtank.live stream request, then edit "letter" and "token" variables respectively
 

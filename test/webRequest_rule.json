@@ -1,0 +1,61 @@
+{
+	"global_test": {
+		"exp": ""
+	},
+	"global_status": true,
+	"tab_info_throtte": 500,
+	"popup_auto_close": true,
+	"exp_verify_syntax": true,
+	"search_parse_js_object": false,
+	"request_verbose": 0,
+	"init": {
+		"exp": ""
+	},
+	"template": {},
+	"code_editor": false,
+	"code_editor_init": "",
+	"code_editor_idle_timeout": 10,
+	"options_group_rules": false,
+	"rules": [
+		{
+			"enable": true,
+			"id": 1751046462117,
+			"test": {
+				"exp": "let hostPattern = /^streams-[a-z]\\.fishtank\\.live$/;\nlet urlObj = new URL(details.url);\nreturn hostPattern.test(urlObj.hostname);"
+			},
+			"beforeRequest": {
+				"exp": ""
+			},
+			"beforeSendHeaders": {
+				"exp": "let headersInit = {\n\t\"user-agent\": \"Mozilla/5.0\",\n\t\"referer\": \"https://www.fishtank.live\",\n\t\"origin\": \"https://www.fishtank.live\"\n};\nlet headers = Object.entries(headersInit)\n\t.filter(([k, v]) => v !== null)\n\t.map(([k, v]) => ({ name: k, value: v }));\nfor (let header of details.requestHeaders) {\n\tlet name = header.name.toLowerCase();\n\tif (name in headersInit) continue;\n\theaders.push(header);\n}\nreturn { requestHeaders: headers };"
+			},
+			"sendHeaders": {
+				"exp": ""
+			},
+			"headersReceived": {
+				"exp": ""
+			},
+			"authRequired": {
+				"exp": ""
+			},
+			"beforeRedirect": {
+				"exp": ""
+			},
+			"responseStarted": {
+				"exp": ""
+			},
+			"completed": {
+				"exp": ""
+			},
+			"error": {
+				"exp": ""
+			},
+			"filterResponse": {
+				"exp": ""
+			},
+			"name": "modify request header",
+			"group": "fishtank",
+			"updateTime": 1774039265869
+		}
+	]
+}
