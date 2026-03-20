@@ -80,7 +80,10 @@ main {
     <video class="stream" poster="https://www.fishtank.live/images/logo.png" controls autoplay muted playsinline></video>
 </main>
 <script>
-const letter = "h",
+const main = document.querySelector("main"),
+cameras = document.querySelector(".cameras"),
+player = document.querySelector(".stream"),
+letter = "h",
 params = "",
 cams = {
     "Director": {
@@ -151,7 +154,7 @@ cams = {
 camerasWidth();
 window.addEventListener("resize", camerasWidth);
 for (let cam in cams) {
-    const camera = Object.assign(document.createElement("button"),{classList: "camera", textContent: cam, value: cam, onclick: () => stream(cam)});
+    const camera = Object.assign(document.createElement("button"), {classList: "camera", textContent: cam, value: cam, onclick: () => stream(cam)});
     if (half.includes(cam)) camera.classList.add("half");
     const updateThumb = () => {
         const thumb = cams[cam].thumb;
@@ -164,13 +167,12 @@ for (let cam in cams) {
     document.querySelector(".cameras").appendChild(camera);
 }
 function stream(cam) {
-    const stream = cams[cam].stream + params;
-    const player = document.querySelector(".stream");
+    const url = cams[cam].stream + params;
     active(cam);
     if (window.hls) window.hls.destroy();
     if (Hls.isSupported()) {
         window.hls = new Hls();
-        window.hls.loadSource(stream);
+        window.hls.loadSource(url);
         window.hls.attachMedia(player);
         window.hls.on(Hls.Events.MANIFEST_PARSED, () => player.play());
     } else alert("unsupported");
@@ -181,8 +183,6 @@ function active(cam) {
     if (button) button.classList.add("active");
 }
 function camerasWidth() {
-    const main = document.querySelector("main");
-    const cameras = document.querySelector(".cameras");
     const streamWidth = main.clientHeight * (16 / 9);
     let camerasWidth = main.clientWidth - streamWidth;
     if (camerasWidth < 150) camerasWidth = 150;
