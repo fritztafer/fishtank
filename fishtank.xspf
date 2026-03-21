@@ -86,7 +86,7 @@ open this file with https://www.videolan.org/vlc
 		</track>
 		<track>
 			<location>https://epyc.goran.jetzt:444/hls/hwdn-5/index.m3u8</location>
-			<title>Hallway Down</title>
+			<title>Hallway</title>
 			<extension application="http://www.videolan.org/vlc/playlist/0">
 				<vlc:id>11</vlc:id>
 			</extension>
